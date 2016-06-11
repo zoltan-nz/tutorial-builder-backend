@@ -1,0 +1,2 @@
+class SandboxesController < ApplicationController
+end
