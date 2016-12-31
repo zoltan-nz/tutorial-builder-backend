@@ -1,27 +1,28 @@
 ## LOG
 
 * Ruby 2.3
-* Rails 5.0 rc1
+* Rails 5.0
 
 
-    gem install nokogiri -- --use-system-libraries
-    gem install rails --pre
+    (On mac:)
+    $ gem install nokogiri -- --use-system-libraries
+    $ gem install rails
 
 Create new API app
 
-    rails new tutorial-builder-backend --api --database=postgresql --skip-javascript --skip-sprockets -d
+    $ rails new tutorial-builder-backend --api --database=postgresql --skip-javascript --skip-sprockets -d
 
 Add jsonapi-resources
 
-    gem 'jsonapi-resources', '0.7.1.beta2'
+    $ gem 'jsonapi-resources', '^0.8.0.beta2'
 
 Only the new beta version is compatible with rails v5 rc1.
 
-    rails db:create
+    $ rails db:create
 
 Create resource
 
-    rails g jsonapi:resource sandbox
+    $ rails g jsonapi:resource sandbox
 
 Create model
 
@@ -65,6 +66,10 @@ Activate CORS
       end
     end
 
+### Implementing tutorial, lesson and step models
+
+    $ rails g model tutorial name lessons:hasMany
+    $ rails g jsonapi:resource tutorial
 
 
 ## Reading
@@ -73,4 +78,5 @@ http://blog.arkency.com/2016/02/how-and-why-should-you-use-json-api-in-your-rail
 https://github.com/cerebris/jsonapi-resources
 http://edgeguides.rubyonrails.org/api_app.html
 https://blog.codeship.com/building-a-json-api-with-rails-5/
+
 
